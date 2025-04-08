@@ -1,0 +1,65 @@
+# Guarneri-style device YAML configuration
+
+apsbits.utils.sim_creator.predefined_device:
+- {creator: ophyd.sim.motor, name: sim_motor}
+- {creator: ophyd.sim.noisy_det, name: sim_det}
+
+apstools.devices.SimulatedApsPssShutterWithStatus:
+- name: shutter
+  labels: ["shutters"]
+
+# ophyd.Signal:
+# - name: test
+#   value: 50.7
+# - name: t2
+#   value: 2
+
+# apstools.synApps.Optics2Slit2D_HV:
+# - name: slit1
+#   prefix: ioc:Slit1
+#   labels: ["slits"]
+
+# hkl.SimulatedE4CV:
+# - name: sim4c
+#   prefix: ""
+#   labels: ["diffractometer"]
+
+# ophyd.scaler.ScalerCH:
+# - name: scaler1
+#   prefix: vme:scaler1
+#   labels: ["scalers", "detectors"]
+
+ophyd.EpicsMotor:
+- {name: m1, prefix: 100idPySBL:m1, labels: ["motor"]}
+- {name: m2, prefix: 100idPySBL:m2, labels: ["motor"]}
+- {name: m3, prefix: 100idPySBL:m3, labels: ["motor"]}
+- {name: m4, prefix: 100idPySBL:m4, labels: ["motor"]}
+- {name: m5, prefix: 100idPySBL:m5, labels: ["motor"]}
+- {name: m6, prefix: 100idPySBL:m6, labels: ["motor"]}
+- {name: m7, prefix: 100idPySBL:m7, labels: ["motor"]}
+- {name: m8, prefix: 100idPySBL:m8, labels: ["motor"]}
+- {name: m9, prefix: 100idPySBL:m9, labels: ["motor"]}
+- {name: m10, prefix: 100idPySBL:m10, labels: ["motor"]}
+- {name: m11, prefix: 100idPySBL:m11, labels: ["motor"]}
+- {name: m12, prefix: 100idPySBL:m12, labels: ["motor"]}
+
+sbl.devices.ShadowDetector0D:
+- name: shadow0D
+  prefix: "100idPySBL:SBL:det:"
+  labels: ["detector"]
+
+# apstools.devices.ad_creator:
+#   - name: adsimdet
+#     prefix: "ad:"
+#     labels: ["area_detector", "detectors"]
+#     plugins:
+#       - cam:
+#           class: apstools.devices.SimDetectorCam_V34
+#       - image
+#       - pva
+#       - hdf1:
+#           class: apstools.devices.AD_EpicsFileNameHDF5Plugin
+#           read_path_template: "/path/to/bluesky/tmp/"
+#           write_path_template: "/path/to/ioc/tmp/"
+#       - roi1
+#       - stats1
