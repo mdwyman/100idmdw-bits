@@ -63,3 +63,41 @@ sbl.devices.ShadowDetector0D:
 #           write_path_template: "/path/to/ioc/tmp/"
 #       - roi1
 #       - stats1
+
+# White beam apertures (SL-1, SL-2)
+sbl.devices.HHLAperture:
+- name: hhl_aperture
+  prefix: "100idPySBL:SL:"
+  labels: ["slits"]
+  pitch_motor: "100idPySBL:m18"
+  yaw_motor: "100idPySBL:m19"
+  horizontal_motor: "100idPySBL:m16"
+  diagonal_motor: "100idPySBL:m17"
+  
+# MONO
+apstools.devices.KohzuSeqCtl_Monochromator:
+- name: mono
+  prefix: "100idPySBL:"
+  labels: ["mono"]
+
+## AVS Filter support
+sbl.devices.AVSfilters:
+- name: fl2
+  prefix: "100idPyFilter:FL2:"
+  labels: ["filters"]
+  translation_motor: "100idPySBL:m20"
+  
+## Transfocator (CRL1, CRL2) optics support
+sbl.devices.JJtransfocator2xZ:
+- name: crl100id2x
+  prefix: "100idPyCRL:CRL:"
+  labels: ["transfocators"]
+  pitch1_motor: "100idPyCRL:m21"
+  yaw1_motor: "100idPyCRL:m22"
+  x1_motor: "100idPyCRL:m23"
+  y1_motor: "100idPyCRL:m24"
+  pitch2_motor: "100idPyCRL:m25"
+  yaw2_motor: "100idPyCRL:m26"
+  x2_motor: "100idPyCRL:m27"
+  y2_motor: "100idPyCRL:m28"
+  z2_motor: "100idPyCRL:m29s"
