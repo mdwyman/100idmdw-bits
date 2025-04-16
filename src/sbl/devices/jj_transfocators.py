@@ -4,7 +4,6 @@ JJ-Xray Transfocators
 Device uses PyDevice for focal size calculation and lens configuration control
 """
 
-#TODO how to adapt for new BITS format and devices.yml?
 
 from ophyd import Component as Cpt
 from ophyd import FormattedComponent as FCpt
@@ -34,10 +33,6 @@ class JJtransfocator(Device):
 
     focalPower = FCpt(fpower_index, "{prefix}")
     focalSize = FCpt(focal_size, "{prefix}")
-#    fpower_index = Cpt(EpicsSignal, "1:sortedIndex", kind="hinted")
-#    fpower_index_readback = Cpt(EpicsSignalRO, "1:sortedIndex_RBV", kind="hinted")
-#    fsize_set = Cpt(EpicsSignal, "focalSize", kind="hinted")
-#    fsize_readback = Cpt(EpicsSignalRO, "focalSize_actual", kind="hinted")
 
     q = Cpt(EpicsSignalRO, "q", kind="hinted")
     dq = Cpt(EpicsSignalRO, "dq", kind="hinted")
