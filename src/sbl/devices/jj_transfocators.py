@@ -2,6 +2,44 @@
 JJ-Xray Transfocators
 
 Device uses PyDevice for focal size calculation and lens configuration control
+
+    Parameters
+    ==========
+    prefix:
+      EPICS prefix required to communicate with transfocator IOC, ex: "100idPyCRL:CRL:"
+    pitch1_motor:
+      The motor record PV controlling the real pitch motor on CRL1, ex "100id:m4"
+    yaw1_motor:
+      The motor record PV controlling the real yaw motor on CRL1, ex "100id:m5"
+    x1_motor:
+      The motor record PV controlling the real lateral motor on CRL1, ex: "100id:m1"
+    y1_motor:
+      The motor record PV controlling the real vertical motor on CRL1, ex: "100id:m2"
+
+	
+	Optional
+	========
+	For CRL with translation (JJtransfocator1xZ) there's one more motor:
+
+	z1_motor:
+      The motor record PV controlling the real translation motor on CRL1, ex: "100id:m3"
+
+	For two CRL system  (JJtransfocator2x) there's 4 more motors:
+
+    pitch2_motor:
+      The motor record PV controlling the real pitch motor on CRL1, ex "100id:m29"
+    yaw2_motor:
+      The motor record PV controlling the real yaw motor on CRL1, ex "100id:m30"
+    x2_motor:
+      The motor record PV controlling the real lateral motor on CRL1, ex: "100id:m26"
+    y2_motor:
+      The motor record PV controlling the real vertical motor on CRL1, ex: "100id:m27"
+
+	For two CRL system with Translation (JJtransfocator2xZ), there's yet another motor:
+
+	z2_motor:
+      The motor record PV controlling the real translation motor on CRL2, ex: "100id:m28"
+
 """
 
 
@@ -59,16 +97,14 @@ class JJtransfocator1x(JJtransfocator):
         yaw1_motor: str,
         x1_motor: str,
         y1_motor: str,
-        z1_motor: str = '',
         *args,
         **kwargs,
     ):
 
         self._pitch1_motor = pitch1_motor
         self._yaw1_motor = yaw1_motor
-        self._x1_motor = z1_motor
+        self._x1_motor = x1_motor
         self._y1_motor = y1_motor
-        self._z1_motor = z1_motor
 
         super().__init__(prefix, *args, **kwargs)
 
@@ -99,16 +135,14 @@ class JJtransfocator2x(JJtransfocator1x):
         yaw2_motor: str,
         x2_motor: str,
         y2_motor: str,
-        z2_motor: str = '',
         *args,
         **kwargs,
     ):
 
         self._pitch2_motor = pitch2_motor
         self._yaw2_motor = yaw2_motor
-        self._x2_motor = z2_motor
+        self._x2_motor = x2_motor
         self._y2_motor = y2_motor
-        self._z2_motor = z2_motor
 
         super().__init__(prefix, *args, **kwargs)
     

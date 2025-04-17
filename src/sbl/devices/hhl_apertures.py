@@ -12,19 +12,20 @@ class HHLAperture(Device):
 
     Based on the Variable Mass Aperture Slits support in OPTICS module.
 
+	Similar to HHL_slits but for beamlines that dont follow 25ID nomenclature.
 
     Parameters
     ==========
     prefix:
-      EPICS prefix required to communicate with HHL Slit IOC, ex: "25ida:slits:US:"
+      EPICS prefix required to communicate with HHL Slit IOC, ex: "9ida:SL1:"
     pitch_motor:
-      The motor record PV controlling the real pitch motor, ex "25ida:m3"
+      The motor record PV controlling the real pitch motor, ex "9ida:CR9A1:m3"
     yaw_motor:
-      The motor record PV controlling the real yaw motor, ex "25ida:m4"
+      The motor record PV controlling the real yaw motor, ex "9ida:CR9A1:m4"
     horizontal_motor:
-      The motor record PV controlling the real horizontal motor, ex: "25ida:m1"
+      The motor record PV controlling the real horizontal motor, ex: "9ida:CR9A1:m1"
     diagonal_motor:
-      The motor record PV controlling the real diagonal motor, ex: "25ida:m2"
+      The motor record PV controlling the real diagonal motor, ex: "9ida:CR9A1:m2"
     """
 
     def __init__(

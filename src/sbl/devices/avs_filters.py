@@ -1,7 +1,15 @@
 """
-10-bank Filters from A-V-S
+12-bank Filters from A-V-S
 
 Device uses PyDevice for attenuation calculation and filter configuration
+
+    Parameters
+    ==========
+    prefix:
+      EPICS prefix required to communicate with filter IOC, ex: "100idPyFilter:FL2:"
+    translation_motor:
+      The motor record PV controlling the lateral translation of the filter system
+
 """
 
 
